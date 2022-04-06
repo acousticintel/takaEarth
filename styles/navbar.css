@@ -1,0 +1,28 @@
+.main-nav {
+  @apply fixed top-0 z-30 w-full transition-all duration-500 
+  ease-in-out;
+}
+
+.left-nav {
+  @apply flex space-x-4 ;
+}
+
+.right-nav {
+  @apply hidden md:flex items-center space-x-1 ;
+}
+
+.mobilebtn-nav {
+  @apply flex items-center md:hidden ;
+}
+
+.logo-nav {
+  @apply flex items-center py-5 px-3 ;
+}
+
+.left-link-nav {
+  @apply hidden md:flex items-center space-x-1 ;
+}
+
+nav .logo{
+  @apply flex;
+}

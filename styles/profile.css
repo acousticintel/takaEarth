@@ -1,0 +1,149 @@
+.profile-page {
+  @apply min-h-screen text-emerald-800 mx-auto
+  container  pt-10 px-5 md:px-20;
+}
+
+.profile-page > .product__selection > ul {
+  @apply flex flex-wrap text-sm font-medium 
+  text-center text-gray-500 my-4;
+}
+
+.profile-page > .product__selection > ul > li{
+  @apply mr-2;
+}
+
+.profile-page > .product__selection > ul li a{
+  @apply inline-block py-3 px-4 rounded-full 
+  hover:text-gray-900 hover:bg-gray-50 capitalize;
+}
+
+.profile-page > .product__selection > ul li a.active{
+  @apply text-white bg-teal-600;
+}
+
+.profile-page > .product__selection > .list{
+  @apply flex flex-wrap gap-6 justify-center;
+}
+
+.profile-page > .product__selection > .list .item{
+  min-width: 150px;
+  @apply rounded-xl overflow-hidden
+  bg-white text-gray-900 shadow-lg;
+}
+
+.profile-page > .product__selection > .list .image__cont{
+  @apply relative h-32 w-full bg-amber-200;
+}
+
+.profile-page > .product__selection > .list .image__cont.pink{
+  @apply bg-pink-200;
+}
+
+.profile-page > .product__selection > .list .image__cont.yellow{
+  @apply bg-amber-200;
+}
+
+.profile-page > .product__selection > .list .image__cont.green{
+  @apply bg-teal-200;
+}
+
+.profile-page > .product__selection > .list h5{
+  @apply font-semibold text-sm capitalize;
+}
+
+.profile-page > .product__selection > .list h6{
+  @apply font-semibold text-xs;
+}
+
+.profile-page > .buttons-sec {
+  @apply flex justify-start my-3 gap-4;
+}
+
+.profile-page > .buttons-sec > .button {
+  @apply mx-auto lg:mx-0 rounded-full my-6 py-4 px-8
+  text-emerald-700 hover:text-emerald-500 font-bold
+  focus:outline-none hover:border-emerald-700 transform transition 
+  hover:scale-105 duration-300 ease-in-out;
+}
+
+.profile-page > .buttons-sec > .button:first-child {
+  background: linear-gradient(315deg, #fffff7, #dee5d0);
+  box-shadow: -5px -5px 36px #bcc1b0, 5px 5px 36px #ffffff;
+}
+
+.profile-page > .buttons-sec > .button:last-child {
+  background: linear-gradient(45deg, #fffff7, #dee5d0);
+  box-shadow: 5px -5px 36px #bcc1b0, -5px 5px 36px #ffffff;
+}
+
+.profile-page > section {
+  background: #f9fafb;
+box-shadow:  20px 20px 60px #d4d5d5,
+             -20px -20px 60px #ffffff;
+  @apply px-6 py-6 rounded-xl my-10;
+}
+
+.profile-page h5 {
+  @apply font-light text-lg;
+}
+
+.profile-page h3 {
+  @apply font-normal text-xl;
+}
+
+.redeem-section {
+  @apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 justify-center items-center py-6 px-2;
+}
+
+.redeem-card {
+  @apply w-40 mx-auto rounded-xl py-16 flex justify-center items-center
+   text-emerald-600 bg-emerald-200 relative overflow-hidden 
+   transition-all duration-500 ease-in-out transform scale-100 origin-center;
+}
+
+.redeem-card.selected {
+  @apply scale-105;
+}
+
+.redeem-card .grad {
+  @apply z-0 w-full h-full absolute left-0 top-0 bg-gradient-to-t 
+  from-sky-600  to-emerald-400 opacity-50;
+}
+
+.redeem-card > .content {
+  @apply z-10 flex flex-col justify-center items-center 
+  transition-all duration-300 ease-in;
+}
+
+.redeem-card > .content > span {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.redeem-card > .content > span:nth-child(1) {
+  @apply text-2xl font-bold;
+}
+
+.redeem-card.selected > .content > span:nth-child(1) {
+  @apply text-3xl text-gray-200;
+}
+
+.redeem-card > .content > span:nth-child(2) {
+  @apply text-emerald-400 text-xs;
+}
+
+.redeem-card.selected > .content > span:nth-child(2) {
+  @apply text-gray-200 text-sm;
+}
+
+.redeem-card.selected > .content > svg {
+  @apply text-gray-200 h-6 w-6 transition-all duration-300 ease-in-out;
+}
+
+.points-sec .button {
+  background: linear-gradient(45deg, #ffffff, #e6e6e6);
+  box-shadow: 5px -5px 10px #c4c4c4, -5px 5px 10px #ffffff;
+  @apply mx-auto lg:mx-0 rounded-full my-6 py-4 px-8 
+  text-emerald-700 font-bold hover:text-emerald-500
+  focus:outline-none hover:border-emerald-500 
+  transform transition-all hover:scale-105 duration-300 ease-in-out;
+}

@@ -1,0 +1,59 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "./signin.css";
+@import "./profile.css";
+@import "./navbar.css";
+@import "./history.css";
+@import "./rates.css";
+@import "./offers.css";
+@import "./recent.css";
+@import "./hero.css";
+@import "./banner.css";
+@import "./modal.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply p-0 m-0;
+}
+
+.gradient {
+  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+}
+
+body{
+  caret-color: transparent; 
+  @apply font-body leading-normal tracking-normal text-white custom-scroll bg-gray-100;
+}
+
+.section-divider{
+  @apply bg-gradient-to-r rounded-full  from-green-600  to-emerald-400
+   ml-2 mt-1 mb-4 h-0.5 w-10 ;
+}
+
+/* width */
+.custom-scroll::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+/* Track */
+.custom-scroll::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+/* Handle */
+.custom-scroll::-webkit-scrollbar-thumb {
+  @apply bg-emerald-900 hover:bg-emerald-700 rounded-full 
+  bg-opacity-70 transition-colors duration-500;
+}
+
+.page-content{
+  @apply font-light text-emerald-900 pt-16;
+}
+
+.abs-center{
+  @apply absolute top-1/2 left-1/2 
+  transform -translate-x-1/2 -translate-y-1/2;
+}

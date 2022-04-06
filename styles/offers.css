@@ -1,0 +1,102 @@
+.offers-page{
+  @apply min-h-screen text-gray-800 
+  container mx-auto pt-8 px-4 pb-8; 
+}
+
+.offers-page > section{
+  @apply h-full px-10 py-12 rounded-xl my-10;
+}
+
+.offers-page h3 {
+  @apply font-light text-xl;
+}
+
+.offers-page > .buttons-sec {
+  @apply flex justify-center;
+}
+
+.offers-page > .buttons-sec > .button {
+  @apply mx-auto lg:mx-0 rounded-full my-6 py-4 px-8
+  text-emerald-700 hover:text-emerald-500 font-bold
+  focus:outline-none hover:border-emerald-700 transform transition 
+  hover:scale-105 duration-300 ease-in-out;
+}
+
+.offers-page > .buttons-sec > .button:first-child {
+  background: linear-gradient(315deg, #fffff7, #dee5d0);
+  box-shadow: -5px -5px 36px #bcc1b0, 5px 5px 36px #ffffff;
+}
+
+.promo-section{
+  @apply grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-4;
+}
+
+.promo-card{
+  box-shadow: 20px 20px 65px #bababa, -20px -20px 65px #ffffff;
+  @apply relative rounded-lg flex grow  shadow-md bg-emerald-50
+  transition-all duration-500 ease-in-out transform scale-100 origin-center;
+}
+
+.promo-card> .image{
+  @apply relative w-1/2 object-cover; 
+}
+
+.promo-card> .content{
+  @apply pl-6 pr-2 pt-10 pb-4 z-10 w-1/2 flex flex-col; 
+}
+
+.promo-card> .content h1{
+  @apply text-emerald-800 uppercase; 
+}
+
+.promo-card> .content h2{
+  @apply text-xl font-semibold text-emerald-500 capitalize; 
+}
+
+.promo-card> .content p{
+  @apply text-sm font-light text-emerald-900 my-3 flex flex-col grow; 
+}
+
+.promo-card> .content h3{
+  @apply text-lg font-bold text-emerald-500 my-3; 
+}
+
+.promo-card> .tag{
+  @apply absolute bg-red-500 z-10 rounded-full w-14 h-14 px-4 
+  flex justify-center items-center -left-4 -top-6 
+  transition-all duration-500 ease-out transition-all duration-500 ease-in-out transform scale-100 origin-center; 
+}
+
+.promo-card> .tag > span{
+  @apply text-sm text-center text-white font-bold; 
+}
+
+.promo-card .grad {
+  @apply z-0 w-full h-full absolute left-0 top-0 bg-gradient-to-t 
+  from-sky-600  to-emerald-400 opacity-50 rounded-lg;
+}
+
+
+.promo-card.selected {
+  @apply scale-105;
+}
+
+.promo-card.selected > .content  h1 {
+  @apply text-white;
+}
+
+.promo-card.selected > .content  h2 {
+  @apply text-white;
+}
+
+.promo-card.selected > .content  p {
+  @apply text-gray-50;
+}
+
+.promo-card.selected > .content  h3 {
+  @apply text-white;
+}
+
+.promo-card.selected > .tag {
+  @apply w-16 h-16;
+}

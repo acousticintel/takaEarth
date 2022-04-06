@@ -1,0 +1,56 @@
+.modal {
+  @apply fixed z-40 inset-0 overflow-y-auto;
+}
+
+.modal__blind__cont {
+  @apply flex items-start justify-center min-h-screen 
+  pt-4 px-4 pt-20 text-center sm:block sm:p-0;
+}
+
+.modal__blind {
+  @apply fixed inset-0 bg-gray-900;
+}
+
+.modal__cont {
+  @apply relative inline-block align-bottom bg-gray-100 
+  rounded-lg text-left overflow-hidden shadow-xl sm:my-8 
+  sm:align-middle sm:max-w-lg sm:w-full;
+}
+
+.request__modal {
+  @apply px-10 sm:px-20 py-10 h-full;
+}
+
+.request__modal h1{
+  @apply text-lg font-bold;
+}
+
+.request__modal p{
+  @apply text-gray-800 tracking-wide;
+}
+
+.request__modal .option{
+  @apply bg-white rounded-xl py-5 my-2 text-center font-semibold;
+}
+
+
+.request__modal > .request__btn {
+  @apply mt-5 sm:mt-6 flex justify-center;
+}
+
+.request__modal > .request__btn > button  {
+  @apply inline-flex justify-center items-center w-2/3 rounded-md
+  border border-transparent shadow-sm px-3 py-4 
+  text-base font-medium focus:ring-2 focus:ring-offset-2
+  sm:text-sm focus:outline-none disabled:bg-gray-300 
+  disabled:cursor-not-allowed hover:disabled:bg-gray-300
+  transition-all transform hover:scale-105 duration-200;
+}
+
+.request__modal > .request__btn > button.valid {
+  @apply bg-emerald-700 text-white focus:ring-emerald-500;
+}
+
+.request__modal > .request__btn > button.invalid {
+  @apply bg-gray-300 text-gray-400 focus:ring-gray-500;
+}
