@@ -39,7 +39,7 @@ export default function Banner() {
       window.deferredPrompt = null;
       // Hide the install button.
       setState("installed");
-      console.log("👍", "appinstalled fired", event);
+      console.log("👍", "appinstalled fired");
     });
   });
 

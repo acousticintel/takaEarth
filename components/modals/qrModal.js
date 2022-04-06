@@ -75,7 +75,7 @@ export default function QrModal() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="flex items-start justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <motion.div variants={modalVar} className="modal__blind" />
             <span
               className="hidden sm:inline-block sm:align-middle sm:h-screen"
@@ -93,8 +93,8 @@ export default function QrModal() {
                   Please show this code to the attendant
                 </h1>
                 {pic && (
-                  <div className="relative h-96 w-96 my-5 rounded-lg overflow-hidden">
-                    <Image src={pic} layout="fill" />
+                  <div className="relative h-96 w-full my-5 rounded-lg overflow-hidden">
+                    <Image src={pic} layout="fill" className="object-contain"/>
                   </div>
                 )}
                 <p className="text-gray-400">

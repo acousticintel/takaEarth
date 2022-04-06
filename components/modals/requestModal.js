@@ -360,7 +360,7 @@ export default function RecentModal() {
                       className={validate() ? "valid" : "invalid"}
                       onClick={uploadRequestCall}
                     >
-                      {loading ? "Requesting.." : "Request Pick Up"}
+                      {loading ? "Processing.." : "Complete"}
                     </button>
                   )}
                   {panel === "success" || panel === "error" ? (

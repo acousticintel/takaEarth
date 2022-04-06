@@ -47,7 +47,6 @@ export default function RecentModal() {
   const box = useRef(null);
   useOutsideAlerter(box);
   const { recModal, selRequest } = useData();
-  console.log(selRequest);
 
   const getImageAdd = () => {
     var temp = prodPhotos.find(function (p) {
