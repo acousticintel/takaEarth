@@ -35,14 +35,14 @@ export default function ProdSelection() {
     <div className="product__selection">
       <ul>
         <li onClick={() => setSelected("all")}>
-          <a href="#" className={selected == "all" ? "active" : ""}>
+          <span href="#" className={selected == "all" ? "active" : ""}>
             all
-          </a>
+          </span>
         </li>
         {recyclables?.length > 0 &&
           recyclables.map((r, i) => (
             <li key={i} onClick={() => setSelected(r.cat)}>
-              <a className={selected == r.cat ? "active" : ""}>{r.cat}</a>
+              <span className={selected == r.cat ? "active" : ""}>{r.cat}</span>
             </li>
           ))}
       </ul>

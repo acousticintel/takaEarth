@@ -8,50 +8,50 @@
   text-center text-gray-500 my-4;
 }
 
-.profile-page > .product__selection > ul > li{
+.profile-page > .product__selection > ul > li {
   @apply mr-2;
 }
 
-.profile-page > .product__selection > ul li a{
+.profile-page > .product__selection > ul li span {
   @apply inline-block py-3 px-4 rounded-full 
   hover:text-gray-900 hover:bg-gray-50 capitalize;
 }
 
-.profile-page > .product__selection > ul li a.active{
+.profile-page > .product__selection > ul li span.active {
   @apply text-white bg-teal-600;
 }
 
-.profile-page > .product__selection > .list{
+.profile-page > .product__selection > .list {
   @apply flex flex-wrap gap-6 justify-center;
 }
 
-.profile-page > .product__selection > .list .item{
+.profile-page > .product__selection > .list .item {
   min-width: 150px;
   @apply rounded-xl overflow-hidden
   bg-white text-gray-900 shadow-lg;
 }
 
-.profile-page > .product__selection > .list .image__cont{
+.profile-page > .product__selection > .list .image__cont {
   @apply relative h-32 w-full bg-amber-200;
 }
 
-.profile-page > .product__selection > .list .image__cont.pink{
+.profile-page > .product__selection > .list .image__cont.pink {
   @apply bg-pink-200;
 }
 
-.profile-page > .product__selection > .list .image__cont.yellow{
+.profile-page > .product__selection > .list .image__cont.yellow {
   @apply bg-amber-200;
 }
 
-.profile-page > .product__selection > .list .image__cont.green{
+.profile-page > .product__selection > .list .image__cont.green {
   @apply bg-teal-200;
 }
 
-.profile-page > .product__selection > .list h5{
+.profile-page > .product__selection > .list h5 {
   @apply font-semibold text-sm capitalize;
 }
 
-.profile-page > .product__selection > .list h6{
+.profile-page > .product__selection > .list h6 {
   @apply font-semibold text-xs;
 }
 
@@ -78,8 +78,7 @@
 
 .profile-page > section {
   background: #f9fafb;
-box-shadow:  20px 20px 60px #d4d5d5,
-             -20px -20px 60px #ffffff;
+  box-shadow: 20px 20px 60px #d4d5d5, -20px -20px 60px #ffffff;
   @apply px-6 py-6 rounded-xl my-10;
 }
 

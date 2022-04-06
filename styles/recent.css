@@ -19,13 +19,9 @@
   @apply min-w-full;
 }
 
-.recent__table table > thead{
-  @apply border-b border-gray-100;
-}
-
 .recent__table table > thead > tr > th{
-  @apply font-medium text-emerald-900 px-0 
-  sm:px-2 md:px-6 py-4 text-center;
+  @apply font-medium text-gray-400 px-0 text-sm
+  sm:px-2 md:px-6 py-4 text-center uppercase;
 }
 
 .recent__table table > tbody > tr:nth-child(odd){

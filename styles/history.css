@@ -3,9 +3,8 @@
 }
 
 .history-page > section {
-  background: #ffffff;
   box-shadow: 20px 20px 65px #bababa, -20px -20px 65px #ffffff;
-  @apply h-full px-10 py-12 rounded-xl my-10;
+  @apply h-full px-10 py-12 rounded-xl my-10 bg-gray-50;
 }
 
 .history-page h3 {
@@ -52,24 +51,17 @@
   @apply min-w-full;
 }
 
-.hist__table table > thead{
-  @apply border-b border-lime-100;
-}
-
 .hist__table table > thead > tr > th{
-  @apply text-sm font-medium text-emerald-900 px-0 sm:px-2 md:px-6 py-4 text-left;
+  @apply font-medium text-gray-400 px-0 text-sm
+  sm:px-2 md:px-6 py-4 text-center uppercase;
 }
 
-.hist__table table > thead > tr > th:nth-child(2){
-  @apply text-center;
-}
-
-.hist__table table > tbody > tr:nth-child(even){
-  @apply bg-gray-100;
+.hist__table table > tbody > tr:nth-child(odd){
+  @apply bg-white;
 }
 
 .hist__table table > tbody > tr {
-  @apply transition duration-300 ease-in-out hover:bg-green-50;
+  @apply transition duration-300 ease-in-out hover:bg-teal-50;
 }
 
 .hist__table table > tbody > tr:last-child {
@@ -77,15 +69,12 @@
 }
 
 .hist__table table > tbody > tr > td{
-  @apply text-sm text-gray-900 font-light px-1 sm:px-2 md:px-6 py-4 whitespace-nowrap;
+  @apply text-gray-900 font-light capitalize rounded-md
+  px-1 sm:px-2 md:px-6 py-4 whitespace-nowrap text-center;
 }
 
 .hist__table table > tbody > tr > td:first-child{
   @apply whitespace-normal;
-}
-
-.hist__table table > tbody > tr > td:nth-child(2){
-  @apply text-center font-semibold;
 }
 
 .hist__table table > tbody > tr > td:last-child{
@@ -93,14 +82,13 @@
 }
 
 .hist__table table > tbody > tr > td:last-child.pending{
-  @apply text-blue-700;
+  @apply text-blue-500;
 }
 
 .hist__table table > tbody > tr > td:last-child.scheduled{
-  @apply text-pink-500;
+  @apply text-orange-500;
 }
 
 .hist__table table > tbody > tr > td:last-child.completed{
   @apply text-emerald-500;
 }
-

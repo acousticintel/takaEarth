@@ -13,6 +13,10 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <meta name="theme-color" content="#fff" />
+          <meta
+            name="description"
+            content="Taka is a platform that helps individuals and businesses to earn as they recycle their waste with our partners."
+          />
         </Head>
         <body>
           <Main />

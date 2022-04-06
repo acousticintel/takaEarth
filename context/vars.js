@@ -36,13 +36,13 @@ export const recyclables = [
     cat: "glass",
     types: [
       {
-        name: "heineken",
-        value: "10/pc",
+        name: "wine",
+        value: "10p/pc",
         back: "green",
       },
       {
         name: "beer bottle",
-        value: "20/pc",
+        value: "20p/pc",
         back: "yellow",
       },
     ],
@@ -52,12 +52,12 @@ export const recyclables = [
     types: [
       {
         name: "phone",
-        value: "100/pc",
+        value: "100p/pc",
         back: "green",
       },
       {
         name: "laptop",
-        value: "500/pc",
+        value: "500p/pc",
         back: "yellow",
       },
     ],
@@ -73,6 +73,14 @@ export const prodSizes = [
     name: "cooking oil bottle",
     sizes: ["1 Litre", "5 Litre", "10 Litre"],
   },
+  {
+    name: "beer bottle",
+    sizes: ["330ml", "500ml"],
+  },
+  {
+    name: "wine",
+    sizes: ["750ml","1 Litre"],
+  },
 ];
 
 export const prodPhotos = [
@@ -85,16 +93,16 @@ export const prodPhotos = [
     image: "oil.png",
   },
   {
-    name: "heineken",
-    image: "tusker.png",
+    name: "wine",
+    image: "wine.webp",
   },
   {
     name: "beer bottle",
-    image: "tusker.png",
+    image: "beer.webp",
   },
   {
     name: "phone",
-    image: "logoPhone.png",
+    image: "smartphone.png",
   },
   {
     name: "laptop",

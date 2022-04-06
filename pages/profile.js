@@ -63,20 +63,27 @@ export default function Profile() {
         <Modal session={session} />
         <motion.h5 variants={riseVar}>Hello {session?.user.name}</motion.h5>
         <div className="flex gap-4 flex-col md:flex-row px-6">
-          <div className="bg-teal-100 rounded-xl w-full md:w-2/3 p-4 overflow-hidden max-h-52">
+          <div
+            className="bg-teal-100 rounded-xl w-full md:w-2/3 p-4 
+          overflow-hidden max-h-52 shadow-lg"
+          >
             <h1 className="text-2xl text-gray-600 font-semibold">
               What would you like to recycle with us today?
             </h1>
             <div className="relative mt-5 max-w-fit -rotate-45 float-right">
-              <Image src="/assets/bin.png" width={180} height={200} />
+              <Image src="/assets/bin.png" width={180} height={200} alt="" />
             </div>
           </div>
-          <div className="bg-amber-800 bg-opacity-30 rounded-xl w-full md:w-1/3 p-4 overflow-hidden max-h-52">
-            <h1 className="text-2xl text-white font-semibold w-4/5">
-              Drop Off
+          <div
+            className="bg-amber-800 bg-opacity-30 rounded-xl w-full 
+          md:w-1/3 p-4 overflow-hidden max-h-52 shadow-lg"
+            onClick={() => onSetQrModal(true)}
+          >
+            <h1 className="text-md text-white font-semibold w-4/5">
+              Drop Off at our nearest partner store
             </h1>
-            <div className="relative max-w-fit float-right">
-              <Image src="/assets/drop.webp" width={300} height={200} />
+            <div className="relative mt-10 max-w-fit float-right">
+              <Image src="/assets/drop.webp" width={130} height={150} alt="" />
             </div>
           </div>
         </div>

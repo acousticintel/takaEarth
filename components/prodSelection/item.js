@@ -29,6 +29,7 @@ export default function Item({prod}) {
           src={`/assets/${getImageAdd()}`}
           className="object-contain"
           layout="fill"
+          alt=""
         />
       </div>
       <div className="p-4">

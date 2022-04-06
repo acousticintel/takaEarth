@@ -8,13 +8,13 @@ export default function Layout({ children }) {
   return (
     <>
       <Head>
-        <title>TAKA</title>
+        <title>Taka. Earn as you throw waste.</title>
       </Head>
       <SideMenu />
       <Navbar />
-      <Banner/>
+      <Banner />
       <div className="page-content">{children}</div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

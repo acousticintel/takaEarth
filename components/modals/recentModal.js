@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 //context
 import { useData } from "../../context/dataContext";
+import { prodPhotos } from "../../context/vars";
 
 const contVar = {
   hide: {
@@ -46,77 +47,72 @@ export default function RecentModal() {
   const box = useRef(null);
   useOutsideAlerter(box);
   const { recModal, selRequest } = useData();
+  console.log(selRequest);
+
+  const getImageAdd = () => {
+    var temp = prodPhotos.find(function (p) {
+      return p.name == selRequest.prod;
+    });
+
+    if (temp) {
+      return `${temp.image}`;
+    } else {
+      return "";
+    }
+  };
 
   return (
     <AnimatePresence className="overflow-auto">
       {recModal && (
-        <motion.div variants={contVar}
+        <motion.div
+          variants={contVar}
           initial="hide"
           animate="show"
           exit="hide"
           className="modal"
           aria-labelledby="modal-title"
           role="dialog"
-          aria-modal="true">
+          aria-modal="true"
+        >
           <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <motion.div variants={modalVar} className="modal__blind" />
-            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <motion.div ref={box}
+            <span
+              className="hidden sm:inline-block sm:align-middle sm:h-screen"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <motion.div
+              ref={box}
               variants={contentVar}
-              className="relative inline-block align-bottom bg-gray-100 rounded-lg text-left overflow-hidden shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+              className="relative inline-block align-bottom bg-gray-100 rounded-lg text-left overflow-hidden shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            >
               <div className="px-10 sm:px-20 py-10">
-                <div className="my-5 w-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-10 w-10 mx-auto"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
+                <div className="relative h-20">
+                  <Image
+                    src={`/assets/${getImageAdd()}`}
+                    className="object-contain"
+                    layout="fill"
+                  />
                 </div>
-                {
-                  selRequest &&
-                  selRequest.order?.length > 0 &&
-                  selRequest.order.map((o, i) => (
-                    <div key={i} className="flex justify-around items-center 
-                    bg-white my-4 rounded-md overflow-hidden py-4 px-2">
-                      <div className="relative">
-                        <Image src="/assets/logoPhone.png"
-                          alt="device"
-                          width={40}
-                          height={40}
-                          objectFit="contain" />
-                      </div>
-                      <div>
-                        <span className="font-semibold text-lg">{o.device}</span>
-                        <div className="text-sm text-gray-500">
-                          Recycled at <span className="text-emerald-900 font-semibold">35</span>
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <span className="text-sm text-gray-500">
-                          Quantity
-                        </span>
-                        <span className="font-semibold text-lg">{o.count}</span>
-                      </div>
-                    </div>
-                  ))
-                }
-                <div className="bg-white px-14 py-4 rounded-md">
+                <h1 className="text-xl text-center capitalize">
+                  {selRequest.prod}
+                </h1>
+                <h1 className="text-center font-semibold">
+                  Recycle Request Details
+                </h1>
+                <div className="bg-white px-14 py-4 my-10 rounded-md">
                   <div className="flex justify-between items-center text-sm">
-                    <span className="font-normal">Scheduled for:</span>
-                    <span className="text-right font-semibold"> ...pending</span>
+                    <span className="font-normal">Size:</span>
+                    <span className="text-xl font-semibold">
+                      {selRequest.size}
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-normal">Total:</span>
-                    <span className="font-semibold text-2xl">{`Ksh ${selRequest?.total}`}</span>
+                    <span className="font-normal">Quantity:</span>
+                    <span className="font-semibold text-xl">
+                      {selRequest.qntt}
+                    </span>
                   </div>
                 </div>
               </div>

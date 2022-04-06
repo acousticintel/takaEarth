@@ -60,7 +60,6 @@ export default function History() {
                     exit="hide"
                     custom={i}
                     key={i}
-                    onClick={() => handleClick(r)}
                   >
                     <td className="flex justify-center items-center">
                       <div className="relative h-8 w-8">

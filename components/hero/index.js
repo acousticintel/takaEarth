@@ -194,7 +194,7 @@ export default function Hero() {
                   <br />
                   <br />
                   Images from:
-                  <a className='text-pink-500 underline' href='https://undraw.co/'>undraw.co</a>
+                  <a className='text-teal-500 underline' href='https://undraw.co/'>undraw.co</a>
                 </p>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function Hero() {
                 <br />
                 <br />
                 Images from:
-                <a className='text-pink-500 underline' href='https://undraw.co/'>undraw.co</a>
+                <a className='text-teal-500 underline' href='https://undraw.co/'>undraw.co</a>
               </p>
             </div>
             <div className='w-full sm:w-1/2 p-6 z-10'>
