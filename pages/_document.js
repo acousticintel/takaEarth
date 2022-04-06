@@ -17,6 +17,20 @@ class MyDocument extends Document {
             name="description"
             content="Taka is a platform that helps individuals and businesses to earn as they recycle their waste with our partners."
           />
+          <meta property="og:title" content="Taka. Earn as you throw waste." />
+          <meta property="og:url" content="https://www.taka.earth" />
+          <meta property="og:image" content="assets/logo.js" />
+          <meta name="twitter:title" content="Taka. Earn as you throw waste." />
+          <meta
+            name="twitter:description"
+            content="Taka is a platform that helps individuals and businesses to earn as they recycle their waste with our partners."
+          />
+          <meta name="twitter:image" content="assets/logo.png" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="keywords"
+            content="recycle waste rewards offers discounts"
+          />
         </Head>
         <body>
           <Main />
