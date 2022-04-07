@@ -110,8 +110,8 @@ export default function RecentModal() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    //console.log(panel);
-  }, [panel]);
+    //console.log(prod);
+  }, [prod]);
 
   const onSetSize = (s) => {
     setSize(s);
@@ -130,6 +130,28 @@ export default function RecentModal() {
     }
   };
 
+  const getSizeQ = () => {
+    let s;
+    switch (prod.name) {
+      case "phone":
+        s = "What type of phone?";
+        return s;
+      //break;
+      case "computer":
+        s = "What type of computer?";
+        return s;
+      //break;
+      case "screens":
+        s = "What type of screen?";
+        return s;
+      //break;
+      default:
+        s = "Whats the size of the containers?";
+        return s;
+      //break;
+    }
+  };
+
   const onSetQntt = (q) => {
     if (q >= 0) {
       setQntt(q);
@@ -141,6 +163,11 @@ export default function RecentModal() {
       setPanel("type");
     }
   };
+
+  const onSetType = (t) => {
+    setType(t);
+    setPanel("complete");
+  }
 
   const uploadRequestCall = () => {
     if (loading) return;
@@ -228,7 +255,7 @@ export default function RecentModal() {
                         animate="show"
                         exit="hide"
                       >
-                        <p>Whats the size of the containers?</p>
+                        <p>{prod?.name && getSizeQ()}</p>
                         <motion.div
                           variants={detContVar}
                           className="flex flex-col"
@@ -298,14 +325,14 @@ export default function RecentModal() {
                           <motion.div
                             variants={detailsVar}
                             className="option"
-                            onClick={() => setType("drop")}
+                            onClick={() => onSetType("drop")}
                           >
                             Drop Off
                           </motion.div>
                           <motion.div
                             variants={detailsVar}
                             className="option"
-                            onClick={() => setType("pick")}
+                            onClick={() => onSetType("pick")}
                           >
                             Pick Up
                           </motion.div>
@@ -325,7 +352,7 @@ export default function RecentModal() {
                           <p className="my-16">
                             Check Recent History to retrieve <br />
                             QR Code required for Drop Offs <br /> or check
-                            scheduled Pick Up date
+                            scheduled for Pick Up date
                           </p>
                         )}
                       </motion.div>

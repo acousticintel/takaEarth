@@ -25,11 +25,11 @@ class MyDocument extends Document {
             name="twitter:description"
             content="Taka is a platform that helps individuals and businesses to earn as they recycle their waste with our partners."
           />
-          <meta name="twitter:image" content="assets/logo.png" />
+          <meta name="twitter:image" content="assets/logo.png" /> 
           <meta name="twitter:card" content="summary_large_image" />
           <meta
             name="keywords"
-            content="recycle waste rewards offers discounts"
+            content="recycle waste rewards offers discounts kenya"
           />
         </Head>
         <body>

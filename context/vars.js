@@ -22,12 +22,12 @@ export const recyclables = [
     types: [
       {
         name: "soda bottle",
-        value: "10p/pc",
+        value: "5p/pc",
         back: "pink",
       },
       {
         name: "cooking oil bottle",
-        value: "20p/pc",
+        value: "5p/pc",
         back: "yellow",
       },
     ],
@@ -38,7 +38,7 @@ export const recyclables = [
       {
         name: "wine",
         value: "10p/pc",
-        back: "green",
+        back: "pink",
       },
       {
         name: "beer bottle",
@@ -56,7 +56,12 @@ export const recyclables = [
         back: "green",
       },
       {
-        name: "laptop",
+        name: "computer",
+        value: "500p/pc",
+        back: "yellow",
+      },
+      {
+        name: "screens",
         value: "500p/pc",
         back: "yellow",
       },
@@ -79,7 +84,19 @@ export const prodSizes = [
   },
   {
     name: "wine",
-    sizes: ["750ml","1 Litre"],
+    sizes: ["750ml", "1 Litre"],
+  },
+  {
+    name: "phone",
+    sizes: ["Kabambe", "Smartphone"],
+  },
+  {
+    name: "computer",
+    sizes: ["Laptop", "Desktop (PC)"],
+  },
+  {
+    name: "screens",
+    sizes: ["Monitor", "Television"],
   },
 ];
 
@@ -105,7 +122,11 @@ export const prodPhotos = [
     image: "smartphone.png",
   },
   {
-    name: "laptop",
+    name: "computer",
+    image: "laptop.png",
+  },
+  {
+    name: "screens",
     image: "laptop.png",
   },
 ];

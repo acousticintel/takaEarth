@@ -25,7 +25,7 @@ export default function RecentTable() {
   const { onSetRecModal, requests, onSetSelRequest } = useData();
 
   const handleClick = (r) => {
-    console.log(r)
+    //console.log(r)
     onSetSelRequest(r);
     onSetRecModal(true);
   };
