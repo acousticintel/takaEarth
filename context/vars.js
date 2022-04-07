@@ -127,6 +127,6 @@ export const prodPhotos = [
   },
   {
     name: "screens",
-    image: "laptop.png",
+    image: "screens.webp",
   },
 ];
