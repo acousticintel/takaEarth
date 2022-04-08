@@ -49,7 +49,7 @@ export default function Offers() {
       >
         <Title title="Cashback" />
         <motion.div variants={riseVar} className="buttons-sec">
-          <button className="button">Cashback</button>
+          <button className="button">Send to my Mpesa</button>
         </motion.div>
         <Title title="Offers" />
         <section>

@@ -100,7 +100,7 @@ export default function PointsSection() {
               className='text-3xl font-normal'>{userPoints}</motion.span>
             <motion.span
               variants={textVar}
-              className='text-xs font-semibold text-emerald-500'>Rewarded Points</motion.span>
+              className='text-xs font-semibold text-emerald-500'>Your Points</motion.span>
           </div>
         </motion.div>
         <motion.button
@@ -109,7 +109,7 @@ export default function PointsSection() {
           animate='show'
           className='button'
           onClick={handleOffersClick}>
-          Rewards
+          Redeem Here
         </motion.button>
       </div>
     </div>

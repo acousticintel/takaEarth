@@ -11,11 +11,11 @@ export default function HeroFull() {
             Recycle for Rewards
           </h1>
           <p className="leading-normal text-lg font-light mb-8">
-            Connecting you to waste management partners. Login. Select Waste Type. Drop Off or Request Pick Up
+            Giving you value as you recycle. Login. Select Waste Type. Drop Off or Request Pick Up.
           </p>
           <Link href="/profile">
             <button className="mx-auto lg:mx-0 bg-emerald-700 opacity-80 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-              Earn Rewards
+              Create Account
             </button>
           </Link>
         </div>
