@@ -63,7 +63,7 @@ export const recyclables = [
       {
         name: "screens",
         value: "500p/pc",
-        back: "yellow",
+        back: "blue",
       },
     ],
   },

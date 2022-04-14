@@ -152,6 +152,7 @@ function useProvideData() {
             username: session.user.name,
             userId: session.user.uid,
             prod: prod.name,
+            status: "pending",
             size,
             qntt,
             type,

@@ -235,7 +235,7 @@ export default function RecentModal() {
             </span>
             <motion.div ref={box} variants={contentVar} className="modal__cont">
               <div className="request__modal">
-                <div className="p-4" onClick={closeModal}>
+                <div className="p-4 -ml-10" onClick={closeModal}>
                   <IoCloseCircleOutline size="1.5em" />
                 </div>
                 <div className="text-center my-5">
