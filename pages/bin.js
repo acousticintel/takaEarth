@@ -223,7 +223,7 @@ export default function Bin() {
               )}
               {orders?.length > 0 &&
                 orders.map((o, i) => (
-                  <div className="flex mb-5">
+                  <div className="flex mb-5" key={i}>
                     <div
                       className="flex items-center justify-between bg-white rounded-xl px-4 py-2 grow"
                       key={i}
