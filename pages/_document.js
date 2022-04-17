@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
@@ -25,7 +25,7 @@ class MyDocument extends Document {
             name="twitter:description"
             content="Taka is a platform that helps individuals and businesses to earn as they recycle their waste with our partners."
           />
-          <meta name="twitter:image" content="assets/logo.png" /> 
+          <meta name="twitter:image" content="assets/logo.png" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta
             name="keywords"

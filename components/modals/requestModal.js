@@ -31,7 +31,7 @@ const modalVar = {
   show: {
     opacity: 0.5,
     transition: {
-      duration: 0.35,
+      duration: 0.25,
     },
   },
 };
@@ -64,6 +64,13 @@ const slideVar = {
       mass: 0.8,
       damping: 10,
       staggerChildren: 0.25,
+    },
+  },
+  exit: {
+    x: "-100%",
+    opacity: 0,
+    transition: {
+      duration: 0.25,
     },
   },
 };
@@ -167,7 +174,7 @@ export default function RecentModal() {
   const onSetType = (t) => {
     setType(t);
     setPanel("complete");
-  }
+  };
 
   const uploadRequestCall = () => {
     if (loading) return;
@@ -250,10 +257,11 @@ export default function RecentModal() {
                   <AnimatePresence exitBeforeEnter>
                     {panel === "size" && (
                       <motion.div
+                        key="size"
                         variants={slideVar}
                         initial="hide"
                         animate="show"
-                        exit="hide"
+                        exit="exit"
                       >
                         <p>{prod?.name && getSizeQ()}</p>
                         <motion.div
@@ -276,17 +284,18 @@ export default function RecentModal() {
                     )}
                     {panel === "qntt" && (
                       <motion.div
+                        key="qntt"
                         variants={slideVar}
                         initial="hide"
                         animate="show"
-                        exit="hide"
+                        exit="exit"
                       >
                         <p>How many containers would you like to recycle?</p>
                         <motion.div
                           variants={detContVar}
                           initial="hide"
                           animate="show"
-                          exit="hide"
+                          exit="exit"
                           className="flex flex-col"
                         >
                           <motion.div variants={detailsVar} className="option">
@@ -305,10 +314,11 @@ export default function RecentModal() {
                     )}
                     {panel === "type" && (
                       <motion.div
+                        key="type"
                         variants={slideVar}
                         initial="hide"
                         animate="show"
-                        exit="hide"
+                        exit="exit"
                       >
                         <p>
                           How would you like to handle pickup
@@ -319,7 +329,7 @@ export default function RecentModal() {
                           variants={detContVar}
                           initial="hide"
                           animate="show"
-                          exit="hide"
+                          exit="exit"
                           className="flex flex-col"
                         >
                           <motion.div
@@ -341,10 +351,11 @@ export default function RecentModal() {
                     )}
                     {panel === "complete" && (
                       <motion.div
+                        key="complete"
                         variants={slideVar}
                         initial="hide"
                         animate="show"
-                        exit="hide"
+                        exit="exit"
                       >
                         {loading ? (
                           <p className="my-20">Processing your request</p>
@@ -359,20 +370,22 @@ export default function RecentModal() {
                     )}
                     {panel === "success" && (
                       <motion.div
+                        key="success"
                         variants={slideVar}
                         initial="hide"
                         animate="show"
-                        exit="hide"
+                        exit="exit"
                       >
                         <p className="my-16">Request Submitted Successfully</p>
                       </motion.div>
                     )}
                     {panel === "error" && (
                       <motion.div
+                        key="error"
                         variants={slideVar}
                         initial="hide"
                         animate="show"
-                        exit="hide"
+                        exit="exit"
                       >
                         <p className="my-16">Request processing Failed</p>
                       </motion.div>

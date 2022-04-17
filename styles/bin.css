@@ -1,0 +1,54 @@
+.bin__page{
+  @apply container mx-auto;
+}
+
+.recycle__bin {
+  @apply px-10 sm:px-20 pb-10 h-full;
+}
+
+.recycle__bin .close{
+  @apply p-4 -ml-10;
+}
+
+.recycle__bin .item__sec{
+  @apply text-center mb-3 max-w-2xl mx-auto;
+}
+
+.recycle__bin .empty{
+  @apply h-96 flex items-center justify-center;
+}
+
+
+.recycle__bin h1{
+  @apply text-xl font-bold;
+}
+
+.recycle__bin p{
+  @apply text-gray-800 tracking-wide;
+}
+
+.recycle__bin .option{
+  @apply bg-white rounded-xl py-5 my-2 text-center font-semibold;
+}
+
+
+.recycle__bin > .request__btn {
+  @apply mt-5 sm:mt-6 flex flex-col gap-6 items-center;
+}
+
+.recycle__bin > .request__btn > button  {
+  @apply inline-flex justify-center items-center w-full md:w-1/3 rounded-md
+  border border-transparent shadow-sm px-3 py-4 
+  text-base font-medium focus:ring-2 focus:ring-offset-2
+  sm:text-sm focus:outline-none disabled:bg-gray-300 
+  disabled:cursor-not-allowed hover:disabled:bg-gray-300
+  transition-all transform hover:scale-105 duration-200;
+}
+
+.recycle__bin > .request__btn > button.valid {
+  @apply bg-teal-700 text-white focus:ring-emerald-500;
+}
+
+.recycle__bin > .request__btn > button.invalid {
+  @apply bg-gray-300 text-gray-400 focus:ring-gray-500;
+}

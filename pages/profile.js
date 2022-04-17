@@ -70,8 +70,8 @@ export default function Profile() {
             <h1 className="text-2xl text-gray-600 font-semibold">
               What would you like to recycle with us today?
             </h1>
-            <div className="relative mt-5 max-w-fit -rotate-45 float-right">
-              <Image src="/assets/bin.png" width={180} height={200} alt="" />
+            <div className="relative mt-4 max-w-fit float-right">
+              <Image src="/assets/bin.png" width={130} height={160} alt="" />
             </div>
           </div>
           <div

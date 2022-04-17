@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { withRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import { FaTrash } from "react-icons/fa";
 //custom
 import Menu from "../elements/menu";
 import { useData } from "../../context/dataContext";
@@ -40,7 +41,7 @@ const childVar = {
 };
 function Navbar({ router }) {
   const { data: session, status } = useSession();
-  const { side, onSetSide } = useData();
+  const { side, onSetSide, orders } = useData();
 
   const [dropOpen, setDropOpen] = useState(false);
   const [clientWindowHeight, setClientWindowHeight] = useState("");
@@ -54,6 +55,10 @@ function Navbar({ router }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
+
+  useEffect(() => {
+    //console.log(orders);
+  }, [JSON.stringify(orders)]);
 
   const handleScroll = () => {
     setClientWindowHeight(window.scrollY);
@@ -125,6 +130,14 @@ function Navbar({ router }) {
               )}
             {status !== "loading" && status !== "unauthenticated" && (
               <>
+                <Link href="/bin">
+                  <div className="relative rounded-full p-2 mr-4">
+                    <FaTrash size="1.5em" />
+                    <span className="absolute top-0 -right-1 bg-green-600 rounded-full text-center text-sm !w-5 !h-5 text-white font-bold">
+                      {orders?.length}
+                    </span>
+                  </div>
+                </Link>
                 <div className="relative h-8 w-8 rounded-full overflow-hidden">
                   <Image src={session.user.image} layout="fill" alt="pp" />
                 </div>

@@ -55,12 +55,11 @@ export default function RecentTable() {
               <thead>
                 <tr>
                   <th scope="col">Items</th>
-                  <th scope="col">Quantity</th>
                   <th scope="col">Status</th>
                 </tr>
               </thead>
               <tbody>
-                {requests?.length > 0 &&
+                {requests?.slice(0,7)?.length > 0 &&
                   requests.map((r, i) => (
                     <motion.tr
                       variants={childVar}
@@ -71,18 +70,32 @@ export default function RecentTable() {
                       key={i}
                       onClick={() => handleClick(r)}
                     >
-                      <td className="flex justify-center items-center">
-                        <div className="relative h-8 w-8">
-                          <Image
-                            src={`/assets/${getImageAdd(r.prod)}`}
-                            className="object-contain"
-                            layout="fill"
-                          />
-                        </div>
-                        {`${r.prod} ${r.size}`}
+                      <td>
+                        {r?.orders &&
+                          r.orders.map((o, i) => {
+                            return (
+                              <div
+                                key={i}
+                                className="flex items-center justify-between grow text-gray-400"
+                              >
+                                <div className="flex items-center">
+                                  <div className="relative h-8 w-8">
+                                    <Image
+                                      src={`/assets/${getImageAdd(o.name)}`}
+                                      className="object-contain"
+                                      layout="fill"
+                                    />
+                                  </div>
+                                  <h5 className="md:ml-10 capitalize">
+                                    {o.name}
+                                  </h5>
+                                </div>
+                                <h5 className="ml-8 mr-5">{o.qntt}</h5>
+                              </div>
+                            );
+                          })}
                       </td>
-                      <td>{r.qntt}</td>
-                      <td className="pending">Pending</td>
+                      <td className="pending">{r.status}</td>
                     </motion.tr>
                   ))}
               </tbody>

@@ -38,6 +38,7 @@ function useProvideData() {
   //product selected
   const [prod, setProd] = useState(null);
   const [side, setSide] = useState(false);
+  const [orders, setOrders] = useState([]);
   const [redeem, setRedeem] = useState(false);
   const [selRequest, setSelRequest] = useState(null);
   //hold data
@@ -55,6 +56,7 @@ function useProvideData() {
   const onSetUserPoints = (val) => setUserPoints(val);
   const onSetRedeem = (val) => setRedeem(val);
   const onSetSelRequest = (val) => setSelRequest(val);
+  const onSetOrders = (val) => setOrders(val);
   const onSetPosts = (val) => {
     if (val?.length > 0) setPosts(val);
   };
@@ -143,7 +145,7 @@ function useProvideData() {
     }
   }
 
-  async function uploadRequest(size, qntt, type) {
+  async function uploadRequest(type) {
     return new Promise(async (resolve, reject) => {
       try {
         if (status !== "unauthenticated") {
@@ -151,24 +153,55 @@ function useProvideData() {
             profileImg: session.user.image,
             username: session.user.name,
             userId: session.user.uid,
-            prod: prod.name,
             status: "pending",
-            size,
-            qntt,
-            type,
+            reqType:type,
+            orders,
             timestamp: serverTimestamp(),
           });
           //console.log('New doc added with ID', docRef.id);
 
-          if (docRef) resolve({ status: 200 });
+          if (docRef) {
+            onSetOrders([]);
+            resolve({ status: 200 })
+          };
         }
       } catch (error) {
-        reject({ status: 500, mes: error });
+        reject(error);
+      }
+    });
+  }
+
+  async function addToBin(order) {
+    return new Promise((resolve, reject) => {
+      if (order?.cat && order?.qntt && order.name && order.recycleCat) {
+        let o = [...orders];
+        o.push(order);
+        onSetOrders(o);
+        resolve({ status: 200 });
+      } else {
+        reject("Invalid Information");
+      }
+    });
+  }
+
+  async function removeFromBin(index) {
+    return new Promise((resolve, reject) => {
+      if (index > -1) {
+        let o = [...orders];
+        o.splice(index, 1); // 2nd parameter means remove one item only
+        console.log(o)
+        onSetOrders(o);
+        resolve({ status: 200 });
+      } else {
+        reject("Invalid index");
       }
     });
   }
 
   return {
+    orders,
+    addToBin,
+    removeFromBin,
     reqModal,
     onSetReqModal,
     recModal,

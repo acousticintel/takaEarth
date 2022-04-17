@@ -18,58 +18,52 @@ export const routes = [
 
 export const recyclables = [
   {
-    cat: "plastic",
-    types: [
-      {
-        name: "soda bottle",
-        value: "5p/pc",
-        back: "pink",
-      },
-      {
-        name: "cooking oil bottle",
-        value: "5p/pc",
-        back: "yellow",
-      },
-    ],
+    name: "soda bottle",
+    value: "5p/pc",
+    back: "pink",
+    recycleCat: "plastic",
   },
   {
-    cat: "glass",
-    types: [
-      {
-        name: "wine",
-        value: "10p/pc",
-        back: "pink",
-      },
-      {
-        name: "beer bottle",
-        value: "20p/pc",
-        back: "yellow",
-      },
-    ],
+    name: "cooking oil bottle",
+    value: "5p/pc",
+    back: "yellow",
+    recycleCat: "plastic",
+  },
+
+  {
+    name: "wine",
+    value: "10p/pc",
+    back: "pink",
+    recycleCat: "glass",
   },
   {
-    cat: "electronics",
-    types: [
-      {
-        name: "phone",
-        value: "100p/pc",
-        back: "green",
-      },
-      {
-        name: "computer",
-        value: "500p/pc",
-        back: "yellow",
-      },
-      {
-        name: "screens",
-        value: "500p/pc",
-        back: "blue",
-      },
-    ],
+    name: "beer bottle",
+    value: "20p/pc",
+    back: "yellow",
+    recycleCat: "glass",
+  },
+
+  {
+    name: "phone",
+    value: "100p/pc",
+    back: "green",
+    recycleCat: "electronics",
+  },
+  {
+    name: "computer",
+    value: "500p/pc",
+    back: "yellow",
+    recycleCat: "electronics",
+  },
+  {
+    name: "screens",
+    value: "500p/pc",
+    back: "blue",
+    recycleCat: "electronics",
   },
 ];
 
-export const prodSizes = [
+export const prodCategories = [
   {
     name: "soda bottle",
     sizes: ["500ml", "1 Litre", "2 litre"],

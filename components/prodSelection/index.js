@@ -5,28 +5,36 @@ import Item from "./item";
 
 export default function ProdSelection() {
   const [selected, setSelected] = useState("all");
+  const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    getCategories();
     filteredRec();
   }, [selected]);
 
-  function filteredRec() {
-    if (selected === "all") {
+  async function getCategories() {
+    if (recyclables?.length > 0) {
       let temp = [];
-      for (const rec of recyclables) {
-        temp.push(...rec.types)
+      recyclables.map((r)=>temp.push(r.recycleCat));
+
+      temp = [...new Set(temp)];
+      setCategories(temp);
+    }
+  }
+  
+  async function filteredRec() {
+    if (selected === "all") {
+      if (recyclables?.length > 0) {
+        setProducts(recyclables);
       }
-      if (temp?.length > 0) {
-        setProducts(temp);
-      }
-    } if (selected !== "all" && recyclables.length > 0) {
-      var temp = recyclables.find(function (r) {
-        return r.cat == selected; 
+    } else if (selected !== "all" && recyclables.length > 0) {
+      var temp = recyclables.filter(function (r) {
+        return r.recycleCat == selected;
       });
 
       if (temp) {
-        setProducts(temp.types);
+        setProducts(temp);
       }
     }
   }
@@ -39,16 +47,18 @@ export default function ProdSelection() {
             all
           </span>
         </li>
-        {recyclables?.length > 0 &&
-          recyclables.map((r, i) => (
-            <li key={i} onClick={() => setSelected(r.cat)}>
-              <span className={selected == r.cat ? "active" : ""}>{r.cat}</span>
+        {categories?.length > 0 &&
+          categories.map((c, i) => (
+            <li key={i} onClick={() => setSelected(c)}>
+              <span className={selected == c ? "active" : ""}>
+                {c}
+              </span>
             </li>
           ))}
       </ul>
       <div className="list">
-        {products?.length > 0 && 
-        products.map((p, i) => <Item key={i} prod={p} />)}
+        {products?.length > 0 &&
+          products.map((p, i) => <Item key={i} prod={p} />)}
       </div>
     </div>
   );

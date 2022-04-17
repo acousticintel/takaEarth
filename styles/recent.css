@@ -29,7 +29,7 @@
 }
 
 .recent__table table > tbody > tr {
-  @apply transition duration-300 ease-in-out hover:bg-teal-50;
+  @apply transition duration-300 ease-in-out hover:bg-teal-100;
 }
 
 .recent__table table > tbody > tr > td{

@@ -1,13 +1,17 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
+//custom
 import { useData } from "../../context/dataContext";
 import { prodPhotos } from "../../context/vars";
 
 export default function Item({prod}) {
+  const router = useRouter();
   const { onSetProd, onSetReqModal } = useData();
 
   const handleClick = () => {
     onSetProd(prod);
-    onSetReqModal(true);
+    //onSetReqModal(true);
+    router.push("/addItem");
   };
 
   const getImageAdd = () => {
