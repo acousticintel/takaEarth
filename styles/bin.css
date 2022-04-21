@@ -1,9 +1,5 @@
-.bin__page{
-  @apply container mx-auto;
-}
-
 .recycle__bin {
-  @apply px-10 sm:px-20 pb-10 h-full;
+  @apply container mx-auto px-10 sm:px-20 pb-10 h-full;
 }
 
 .recycle__bin .close{
@@ -11,11 +7,11 @@
 }
 
 .recycle__bin .item__sec{
-  @apply text-center mb-3 max-w-2xl mx-auto;
+  @apply text-center my-20 max-w-2xl mx-auto grow;
 }
 
 .recycle__bin .empty{
-  @apply h-96 flex items-center justify-center;
+  @apply h-32 flex items-center justify-center;
 }
 
 

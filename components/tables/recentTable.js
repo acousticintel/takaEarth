@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 //custom
 import { useData } from "../../context/dataContext";
 import { prodPhotos } from "../../context/vars";
+import Status from "../elements/status";
 
 const childVar = {
   hide: {
@@ -59,7 +60,7 @@ export default function RecentTable() {
                 </tr>
               </thead>
               <tbody>
-                {requests?.slice(0,7)?.length > 0 &&
+                {requests?.slice(0, 7)?.length > 0 &&
                   requests.map((r, i) => (
                     <motion.tr
                       variants={childVar}
@@ -70,13 +71,14 @@ export default function RecentTable() {
                       key={i}
                       onClick={() => handleClick(r)}
                     >
-                      <td>
+                      <td className="order__list">
                         {r?.orders &&
                           r.orders.map((o, i) => {
                             return (
                               <div
                                 key={i}
-                                className="flex items-center justify-between grow text-gray-400"
+                                className="flex items-center justify-between grow
+                                text-gray-400 py-2"
                               >
                                 <div className="flex items-center">
                                   <div className="relative h-8 w-8">
@@ -95,7 +97,9 @@ export default function RecentTable() {
                             );
                           })}
                       </td>
-                      <td className="pending">{r.status}</td>
+                      <td>
+                        <Status status={r.status} />
+                      </td>
                     </motion.tr>
                   ))}
               </tbody>

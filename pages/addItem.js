@@ -181,6 +181,7 @@ export default function AddItem() {
         cat,
         qntt,
         name: prod.name,
+        points: prod.points,
         recycleCat: prod.recycleCat,
       };
 

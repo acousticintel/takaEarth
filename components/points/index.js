@@ -77,38 +77,43 @@ export default function PointsSection() {
   }
 
   return (
-    <div className='points-sec'>
+    <div className="points-sec">
       <Title title="Earned Points" />
-      <div className='flex flex-col sm:flex-row items-center justify-around px-10 gap-8'>
+      <div className="flex flex-col sm:flex-row items-center justify-around px-10 gap-8">
         <motion.div
           variants={contVar}
-          initial='hide'
-          animate='show'
-          className='flex items-center' >
-          <motion.div
-            variants={coinVar}
-            className='relative mx-3'>
-            <div className='absolute h-14 w-14 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-            bg-yellow-300 rounded-full blur-sm'/>
-            <div className='relative h-14 w-14 rounded-full overflow-hidden'>
-              <Image src='/assets/points.svg' layout='fill' alt='' />
+          initial="hide"
+          animate="show"
+          className="flex items-center mt-10 sm:mt-0"
+        >
+          <motion.div variants={coinVar} className="relative mx-3">
+            <div
+              className="absolute h-14 w-14 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+            bg-yellow-300 rounded-full blur-sm"
+            />
+            <div className="relative h-14 w-14 rounded-full overflow-hidden">
+              <Image src="/assets/points.svg" layout="fill" alt="" />
             </div>
           </motion.div>
-          <div className='flex flex-col'>
+          <div className="flex flex-col">
             <motion.span
               variants={textVar}
-              className='text-3xl font-normal'>{userPoints}</motion.span>
-            <motion.span
-              variants={textVar}
-              className='text-xs font-semibold text-emerald-500'>Your Points</motion.span>
+              className="text-xs font-semibold text-emerald-500"
+            >
+              Your Points
+            </motion.span>
+            <motion.span variants={textVar} className="text-3xl font-normal">
+              {userPoints}
+            </motion.span>
           </div>
         </motion.div>
         <motion.button
           variants={btnVar}
-          initial='hide'
-          animate='show'
-          className='button'
-          onClick={handleOffersClick}>
+          initial="hide"
+          animate="show"
+          className="button"
+          onClick={handleOffersClick}
+        >
           Redeem Here
         </motion.button>
       </div>

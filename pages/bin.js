@@ -127,7 +127,7 @@ export default function Bin() {
       mes = "Drop Off";
     }
 
-    if (validate()) {
+    if (validate() || type === "drop") {
       setLoading(true);
       uploadRequest(type)
         .then((res) => {
@@ -252,7 +252,6 @@ export default function Bin() {
                 ))}
             </motion.div>
           </div>
-          <div className="error"></div>
           <div className="request__btn">
             <button
               type="button"

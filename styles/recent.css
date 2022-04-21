@@ -24,16 +24,17 @@
   sm:px-2 md:px-6 py-4 text-center uppercase;
 }
 
-.recent__table table > tbody > tr:nth-child(odd){
-  @apply bg-white;
+.recent__table table > tbody > tr:nth-child(even){
+  @apply bg-gray-50;
 }
 
 .recent__table table > tbody > tr {
-  @apply transition duration-300 ease-in-out hover:bg-teal-100;
+  @apply transition duration-300 ease-in-out 
+  rounded-md overflow-hidden hover:bg-teal-50;
 }
 
 .recent__table table > tbody > tr > td{
-  @apply text-gray-900 font-light capitalize rounded-md
+  @apply text-gray-900 font-light capitalize
   px-1 sm:px-2 md:px-6 py-4 whitespace-nowrap text-center;
 }
 
@@ -45,16 +46,12 @@
   @apply uppercase font-bold tracking-wide;
 }
 
-.recent__table table > tbody > tr > td:last-child.pending{
-  @apply text-blue-500;
+.recent__table .order__list > div{
+  @apply  border-b border-dashed
 }
 
-.recent__table table > tbody > tr > td:last-child.scheduled{
-  @apply text-orange-500;
-}
-
-.recent__table table > tbody > tr > td:last-child.completed{
-  @apply text-emerald-500;
+.recent__table .order__list > div:last-child{
+  @apply  border-0;
 }
 
 

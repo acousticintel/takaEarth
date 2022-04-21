@@ -48,7 +48,7 @@ export default function Title({ title }) {
     variants={contVar} 
     initial="hide" 
     animate="show"
-    className="flex relative">
+    className="flex relative max-w-fit mx-auto">
       <motion.div variants={scaleVar} className="absolute -bottom-2 -left-3">
         <Image src="/assets/leaf.webp" height={20} width={35} />
       </motion.div>
