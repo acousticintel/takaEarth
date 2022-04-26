@@ -108,7 +108,7 @@ function useProvideData() {
       if (session?.user) {
         const docRef = doc(db, "users", session.user.uid);
         const docSnap = await getDoc(docRef);
-
+        console.log(log)
         if (docSnap.exists()) {
           // Add a new document in collection "installs"
           await setDoc(doc(db, "users", session.user.uid), {
