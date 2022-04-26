@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 //custom packs
 import { AnimatePresence, motion } from "framer-motion";
 import { useData } from "../../context/dataContext";
+//custom
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const bannerVar = {
   hide: {
@@ -24,6 +26,7 @@ export default function Banner() {
   const [show, setShow] = useState(false);
   const [state, setState] = useState(null);
 
+  let platform;
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (event) => {
       // Prevent the mini-infobar from appearing on mobile.
@@ -32,6 +35,7 @@ export default function Banner() {
       window.deferredPrompt = event;
       // Remove the 'hidden' class from the install button container.
       setShow(true);
+      platform = event?.platforms[0];
       // Optionally, send analytics event that PWA install promo was shown.
       console.log("👍", "beforeinstallprompt fired", event);
     });
@@ -49,12 +53,20 @@ export default function Banner() {
     let timer1;
     let delay = 2.5;
     if (state && (state == "installed" || state == "dismissed")) {
-      timer1 = setTimeout(() => setShow(false), delay * 1000);
+      timer1 = setTimeout(() => closeBanner(), delay * 1000);
     }
     return () => {
       clearTimeout(timer1);
     };
   }, [state]);
+
+  const closeBanner = async () => {
+    logInstallData({
+      platform,
+      type: "dismissed",
+    });
+    setShow(false);
+  };
 
   const pwaInstall = async () => {
     console.log("👍", "pwaInstall-clicked");
@@ -71,11 +83,7 @@ export default function Banner() {
     if (result) {
       if (result.outcome == "dismissed") {
         setState("dismissed");
-        let platform = result?.platform;
-        logInstallData({
-          platform,
-          type: "dismissed",
-        });
+        closeBanner();
       } else if (result.outcome == "accepted") {
         let platform = result?.platform;
         logInstallData({
@@ -108,20 +116,7 @@ export default function Banner() {
               </span>
               {!state && <button onClick={pwaInstall}>Install</button>}
             </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-              onClick={() => setShow(false)}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
+            <IoCloseCircleOutline size="2em"/>
           </motion.div>
         )}
       </AnimatePresence>
