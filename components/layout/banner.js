@@ -64,7 +64,7 @@ export default function Banner() {
   const closeBanner = async () => {
     logInstallData({
       platform:plat,
-      state,
+      state: state ? state : "dismissed",
     });
     setShow(false);
   };
