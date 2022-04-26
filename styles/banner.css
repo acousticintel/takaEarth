@@ -1,5 +1,5 @@
 .banner{
-  @apply fixed bottom-0 z-50 h-1/5 w-full 
+  @apply fixed bottom-0 z-50 h-40 w-full 
   transition-all duration-500;
 }
 

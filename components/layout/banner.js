@@ -23,7 +23,7 @@ const bannerVar = {
 
 export default function Banner() {
   const { logInstallData } = useData();
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const [state, setState] = useState(null);
 
   let platform;
@@ -116,7 +116,9 @@ export default function Banner() {
               </span>
               {!state && <button onClick={pwaInstall}>Install</button>}
             </div>
-            <IoCloseCircleOutline size="2em"/>
+            <div className="bg-red-500 p-4" onClick={closeBanner}>
+              <IoCloseCircleOutline size="2em"/>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
