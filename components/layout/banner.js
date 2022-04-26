@@ -24,7 +24,7 @@ const bannerVar = {
 export default function Banner() {
   const { logInstallData } = useData();
   const [show, setShow] = useState(false);
-  const [state, setState] = useState("installed");
+  const [state, setState] = useState(null);
   const [plat, setPlat] = useState(null);
 
   let platform;
