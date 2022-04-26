@@ -95,7 +95,7 @@ function useProvideData() {
 
       if (!docSnap.exists()) {
         // Add a new document in collection "users"
-        await setDoc(doc(db, "users", session.user.uid), {
+        await updateDoc(doc(db, "users", session.user.uid), {
           name: session.user.name,
           email: session.user.email,
         });
@@ -111,7 +111,7 @@ function useProvideData() {
         console.log(log)
         if (docSnap.exists()) {
           // Add a new document in collection "installs"
-          await setDoc(doc(db, "users", session.user.uid), {
+          await updateDoc(doc(db, "users", session.user.uid), {
             ...log,
           });
         }
