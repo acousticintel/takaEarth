@@ -116,7 +116,7 @@ export default function Banner() {
               </span>
               {!state && <button onClick={pwaInstall}>Install</button>}
             </div>
-            <div className="bg-red-500 p-4" onClick={closeBanner}>
+            <div className="p-4" onClick={closeBanner}>
               <IoCloseCircleOutline size="2em"/>
             </div>
           </motion.div>
