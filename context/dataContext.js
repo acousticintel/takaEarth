@@ -104,16 +104,20 @@ function useProvideData() {
   }
 
   async function logInstallData(log) {
-    if (session?.user) {
-      const docRef = doc(db, "users", session.user.uid);
-      const docSnap = await getDoc(docRef);
+    try {
+      if (session?.user) {
+        const docRef = doc(db, "users", session.user.uid);
+        const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        // Add a new document in collection "installs"
-        await setDoc(doc(db, "users", session.user.uid), {
-          ...log
-        });
+        if (docSnap.exists()) {
+          // Add a new document in collection "installs"
+          await setDoc(doc(db, "users", session.user.uid), {
+            ...log,
+          });
+        }
       }
+    } catch (error) {
+      console.log(error)
     }
   }
 
