@@ -31,7 +31,7 @@ export default function Banner() {
       // Remove the 'hidden' class from the install button container.
       setShow(true);
       // Optionally, send analytics event that PWA install promo was shown.
-      console.log("👍", "beforeinstallprompt fired");
+      console.log("👍", "beforeinstallprompt fired", event);
     });
 
     window.addEventListener("appinstalled", (event) => {
@@ -39,7 +39,7 @@ export default function Banner() {
       window.deferredPrompt = null;
       // Hide the install button.
       setState("installed");
-      console.log("👍", "appinstalled fired");
+      console.log("👍", "appinstalled fired", event);
     });
   });
 
