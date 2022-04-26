@@ -24,7 +24,7 @@ const bannerVar = {
 export default function Banner() {
   const { logInstallData } = useData();
   const [show, setShow] = useState(true);
-  const [state, setState] = useState(null);
+  const [state, setState] = useState("installed");
   const [plat, setPlat] = useState(null);
 
   let platform;
@@ -64,7 +64,7 @@ export default function Banner() {
   const closeBanner = async () => {
     logInstallData({
       plat,
-      type: "dismissed",
+      state,
     });
     setShow(false);
   };
@@ -87,10 +87,8 @@ export default function Banner() {
         closeBanner();
       } else if (result.outcome == "accepted") {
         let platform = result?.platform;
-        logInstallData({
-          platform,
-          type: "installed",
-        });
+        setPlat(platform);
+        closeBanner();
       }
     }
     // Reset the deferred prompt variable, since
@@ -117,7 +115,7 @@ export default function Banner() {
               </span>
               {!state && <button onClick={pwaInstall}>Install</button>}
             </div>
-            <div className="p-4" onClick={closeBanner}>
+            <div onClick={closeBanner}>
               <IoCloseCircleOutline size="2em"/>
             </div>
           </motion.div>
