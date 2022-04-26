@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 //custom packs
 import { AnimatePresence, motion } from "framer-motion";
+import { useData } from "../../context/dataContext";
 
 const bannerVar = {
   hide: {
@@ -19,6 +20,7 @@ const bannerVar = {
 };
 
 export default function Banner() {
+  const { logInstallData } = useData();
   const [show, setShow] = useState(false);
   const [state, setState] = useState(null);
 
@@ -69,6 +71,17 @@ export default function Banner() {
     if (result) {
       if (result.outcome == "dismissed") {
         setState("dismissed");
+        let platform = result?.platform;
+        logInstallData({
+          platform,
+          type: "dismissed",
+        });
+      } else if (result.outcome == "accepted") {
+        let platform = result?.platform;
+        logInstallData({
+          platform,
+          type: "installed",
+        });
       }
     }
     // Reset the deferred prompt variable, since

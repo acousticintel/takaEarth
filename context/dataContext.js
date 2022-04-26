@@ -94,10 +94,24 @@ function useProvideData() {
       const docSnap = await getDoc(docRef);
 
       if (!docSnap.exists()) {
-        // Add a new document in collection "cities"
+        // Add a new document in collection "users"
         await setDoc(doc(db, "users", session.user.uid), {
           name: session.user.name,
           email: session.user.email,
+        });
+      }
+    }
+  }
+
+  async function logInstallData(log) {
+    if (session?.user) {
+      const docRef = doc(db, "users", session.user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        // Add a new document in collection "installs"
+        await setDoc(doc(db, "users", session.user.uid), {
+          ...log
         });
       }
     }
@@ -154,7 +168,7 @@ function useProvideData() {
             username: session.user.name,
             userId: session.user.uid,
             status: "pending",
-            reqType:type,
+            reqType: type,
             orders,
             timestamp: serverTimestamp(),
           });
@@ -162,8 +176,8 @@ function useProvideData() {
 
           if (docRef) {
             onSetOrders([]);
-            resolve({ status: 200 })
-          };
+            resolve({ status: 200 });
+          }
         }
       } catch (error) {
         reject(error);
@@ -189,7 +203,7 @@ function useProvideData() {
       if (index > -1) {
         let o = [...orders];
         o.splice(index, 1); // 2nd parameter means remove one item only
-        console.log(o)
+        console.log(o);
         onSetOrders(o);
         resolve({ status: 200 });
       } else {
@@ -199,6 +213,7 @@ function useProvideData() {
   }
 
   return {
+    logInstallData,
     orders,
     addToBin,
     removeFromBin,
