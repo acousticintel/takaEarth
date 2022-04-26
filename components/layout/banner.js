@@ -23,7 +23,7 @@ const bannerVar = {
 
 export default function Banner() {
   const { logInstallData } = useData();
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [state, setState] = useState("installed");
   const [plat, setPlat] = useState(null);
 
@@ -38,7 +38,7 @@ export default function Banner() {
       setShow(true);
       setPlat(event?.platforms[0]);
       // Optionally, send analytics event that PWA install promo was shown.
-      console.log("👍", "beforeinstallprompt fired", event);
+      //console.log("👍", "beforeinstallprompt fired", event);
     });
 
     window.addEventListener("appinstalled", (event) => {
@@ -46,7 +46,7 @@ export default function Banner() {
       window.deferredPrompt = null;
       // Hide the install button.
       setState("installed");
-      console.log("👍", "appinstalled fired", event);
+      //console.log("👍", "appinstalled fired", event);
     });
   });
 
@@ -63,7 +63,7 @@ export default function Banner() {
 
   const closeBanner = async () => {
     logInstallData({
-      plat,
+      platform:plat,
       state,
     });
     setShow(false);
