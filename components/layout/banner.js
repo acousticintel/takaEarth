@@ -25,6 +25,7 @@ export default function Banner() {
   const { logInstallData } = useData();
   const [show, setShow] = useState(true);
   const [state, setState] = useState(null);
+  const [plat, setPlat] = useState(null);
 
   let platform;
   useEffect(() => {
@@ -35,7 +36,7 @@ export default function Banner() {
       window.deferredPrompt = event;
       // Remove the 'hidden' class from the install button container.
       setShow(true);
-      platform = event?.platforms[0];
+      setPlat(event?.platforms[0]);
       // Optionally, send analytics event that PWA install promo was shown.
       console.log("👍", "beforeinstallprompt fired", event);
     });
@@ -62,7 +63,7 @@ export default function Banner() {
 
   const closeBanner = async () => {
     logInstallData({
-      platform,
+      plat,
       type: "dismissed",
     });
     setShow(false);
