@@ -13,7 +13,6 @@ const variants = {
 };
 
 export default function Layout({ children, path }) {
-  
   //console.log(router.route)
   return (
     <>

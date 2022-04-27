@@ -76,6 +76,7 @@ function useProvideData() {
       try {
         const token = await firebaseCloudMessaging.init();
         if (token) {
+          //console.log(token);
           getMessage();
         }
       } catch (error) {
@@ -86,7 +87,7 @@ function useProvideData() {
       const messaging = getMessaging();
       onMessage(messaging, (payload) => {
         const { title, body } = payload.notification;
-        displayNotification({ title, body });
+        console.log({ title, body });
       });
     }
   });
