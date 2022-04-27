@@ -1,26 +1,18 @@
-importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js");
-importScripts(
-  "https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"
-);
+import { getMessaging } from "firebase/messaging";
+import { onBackgroundMessage } from "firebase/messaging/sw";
 
-firebase.initializeApp({
-  apiKey: "****",
-  authDomain: "*****",
-  projectId: "*****",
-  storageBucket: "******",
-  messagingSenderId: "*****",
-  appId: "*****",
-  measurementId: "*****",
-});
-
-firebase.messaging();
-
-//background notifications will be received here
-firebase.messaging().setBackgroundMessageHandler((payload) => {
-  const { title, body } = JSON.parse(payload.data.notification);
-  var options = {
-    body,
-    icon: "/icon-48-48.png",
+const messaging = getMessaging();
+onBackgroundMessage(messaging, (payload) => {
+  console.log(
+    "[firebase-messaging-sw.js] Received background message ",
+    payload
+  );
+  // Customize notification here
+  const notificationTitle = "Background Message Title";
+  const notificationOptions = {
+    body: "Background Message body.",
+    icon: "/firebase-logo.png",
   };
-  registration.showNotification(title, options);
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
 });
