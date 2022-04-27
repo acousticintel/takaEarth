@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import localStorage from 'localStorage';
+import localforage from "localforage";
 //custom components
 import Hero from '../components/hero';
 
@@ -8,9 +8,9 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(()=>{
-    const visited = localStorage.getItem("visited");
+    const visited = localforage.getItem("visited");
     if(!visited){
-      localStorage.setItem("visited", true);
+      localforage.setItem("visited", true);
     }else if(visited){
       router.push("/profile");
     }

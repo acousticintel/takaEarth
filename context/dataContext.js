@@ -5,7 +5,6 @@ import { db } from "../firebase";
 import {
   doc,
   addDoc,
-  setDoc,
   updateDoc,
   getDoc,
   collection,
@@ -15,6 +14,9 @@ import {
   query,
   serverTimestamp,
 } from "@firebase/firestore";
+import { getMessaging, onMessage } from "firebase/messaging";
+//custom
+import { firebaseCloudMessaging } from "../firebaseToken";
 
 const dataContext = createContext();
 
@@ -67,6 +69,39 @@ function useProvideData() {
     if (val?.length > 0) setRequests(val);
   };
 
+  //Enable Push Notifications
+  useEffect(() => {
+    setToken();
+    async function setToken() {
+      try {
+        const token = await firebaseCloudMessaging.init();
+        if (token) {
+          getMessage();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    function getMessage() {
+      const messaging = getMessaging();
+      onMessage(messaging, (payload) => {
+        const { title, body } = payload.notification;
+        displayNotification({ title, body });
+      });
+    }
+  });
+
+  async function displayNotification({ title, body }) {
+    if (Notification.permission === "granted") {
+      navigator.serviceWorker.getRegistration().then((reg) => {
+        var options = {
+          body,
+        };
+        reg.showNotification(title, options);
+      });
+    }
+  }
+
   //useEffect(() => { }, []);
   useEffect(() => {
     createUser();
@@ -108,7 +143,7 @@ function useProvideData() {
       if (session?.user) {
         const docRef = doc(db, "users", session.user.uid);
         const docSnap = await getDoc(docRef);
-        console.log(log)
+        console.log(log);
         if (docSnap.exists()) {
           // Add a new document in collection "installs"
           await updateDoc(doc(db, "users", session.user.uid), {
@@ -117,7 +152,7 @@ function useProvideData() {
         }
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
