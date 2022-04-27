@@ -10,7 +10,7 @@ import { useData } from "../../context/dataContext";
 //components
 import SelectDropdown from "../elements/selectdropdown";
 import NumberPicker from "../elements/numberPicker";
-import { prodPhotos, prodSizes } from "../../context/vars";
+import { prodPhotos, prodCategories } from "../../context/vars";
 
 const contVar = {
   hide: {
@@ -126,7 +126,7 @@ export default function RecentModal() {
   };
 
   const getSizes = () => {
-    var temp = prodSizes.find(function (r) {
+    var temp = prodCategories.find(function (r) {
       return r.name == prod.name;
     });
 
