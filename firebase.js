@@ -37,5 +37,5 @@ const messaging = getMessaging(app);
 export {
   app,
   db,
-  //messaging, //storage
+  messaging, //storage
 };
