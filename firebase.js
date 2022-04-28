@@ -19,7 +19,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const db = getFirestore(app);
-const messaging = getMessaging(app);
+//const messaging = getMessaging(app);
 //const storage = getStorage(app);
 
 //enableIndexedDbPersistence(db).catch(function (err) {
@@ -37,5 +37,5 @@ const messaging = getMessaging(app);
 export {
   app,
   db,
-  messaging, //storage
+  //messaging, //storage
 };
