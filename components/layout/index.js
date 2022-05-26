@@ -5,6 +5,7 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 import Banner from "./banner";
 import SideMenu from "../layout/sideMenu";
+import EventModal from "../modals/eventModal";
 
 const variants = {
   hide: { opacity: 0, x: 200, y: 0 },
@@ -22,6 +23,7 @@ export default function Layout({ children, path }) {
       <SideMenu />
       <Navbar />
       <Banner />
+      <EventModal/>
       <AnimatePresence
         exitBeforeEnter
         initial={false}

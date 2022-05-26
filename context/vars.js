@@ -25,7 +25,7 @@ export const recyclables = [
     recycleCat: "plastic",
   },
   {
-    name: "cooking oil bottle",
+    name: "lunch box",
     value: "1p/pc",
     points: 1,
     back: "yellow",
@@ -76,7 +76,7 @@ export const prodCategories = [
     sizes: ["500ml", "1 Litre", "2 litre"],
   },
   {
-    name: "cooking oil bottle",
+    name: "lunch box",
     sizes: ["1 Litre", "5 Litre", "10 Litre"],
   },
   {
@@ -107,8 +107,8 @@ export const prodPhotos = [
     image: "soda.webp",
   },
   {
-    name: "cooking oil bottle",
-    image: "oil.png",
+    name: "lunch box",
+    image: "box.webp",
   },
   {
     name: "wine",

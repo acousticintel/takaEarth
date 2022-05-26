@@ -12,6 +12,7 @@
 @import "./modal.css";
 @import "./addItem.css";
 @import "./bin.css";
+@import "./events.css";
 
 @tailwind base;
 @tailwind components;

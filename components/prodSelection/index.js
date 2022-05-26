@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { recyclables } from "../../context/vars";
 import Item from "./item";

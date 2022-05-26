@@ -1,0 +1,15 @@
+.events__section{
+  @apply my-6;
+}
+
+.events__list{
+  @apply my-6 grid gap-6 grid-cols-2 md:grid-cols-2;
+}
+
+.events__list > .event .image__cont{
+  @apply w-full h-60 relative rounded-2xl overflow-hidden;
+}
+
+.events__list > .event h1{
+  @apply text-center text-gray-400 font-semibold text-lg my-2;
+}

@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+//custom packs
+import QRCode from "qrcode";
 import { AnimatePresence, motion } from "framer-motion";
-//context
+//custom
 import { useData } from "../../context/dataContext";
 
 const contVar = {
@@ -49,14 +51,15 @@ export default function QrModal() {
   const [pic, setPic] = useState();
 
   useEffect(() => {
-    var QRCode = require("qrcode");
-
     QRCode.toDataURL(
       "some text",
       { errorCorrectionLevel: "H" },
       function (err, url) {
         if (url) {
           setPic(url);
+        }
+        if(err){
+          console.log(err);
         }
       }
     );

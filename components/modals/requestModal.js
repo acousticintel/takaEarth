@@ -102,7 +102,7 @@ const detailsVar = {
   },
 };
 
-export default function RecentModal() {
+export default function RequestModal() {
   //used for off clck detection
   const box = useRef(null);
   const [closeProtect, setCloseProtect] = useState(true);
@@ -245,15 +245,8 @@ export default function RecentModal() {
                 <div className="p-4 -ml-10" onClick={closeModal}>
                   <IoCloseCircleOutline size="1.5em" />
                 </div>
-                <div className="text-center my-5">
-                  <div className="relative h-20">
-                    <Image
-                      src={`/assets/${getImageAdd()}`}
-                      className="object-contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <h1>Recycle Request Details</h1>
+                <div className="text-center">
+                  <h1 className="my-2">Event Recycle Request Details</h1>
                   <AnimatePresence exitBeforeEnter>
                     {panel === "size" && (
                       <motion.div
@@ -263,22 +256,33 @@ export default function RecentModal() {
                         animate="show"
                         exit="exit"
                       >
-                        <p>{prod?.name && getSizeQ()}</p>
+                        <p className="text-gray-500 my-3">What item do you wish to recycle?</p>
                         <motion.div
                           variants={detContVar}
                           className="flex flex-col"
                         >
-                          {prod !== null &&
-                            getSizes().map((s, i) => (
-                              <motion.div
-                                key={i}
-                                variants={detailsVar}
-                                className="option"
-                                onClick={() => onSetSize(s)}
-                              >
-                                {s}
-                              </motion.div>
-                            ))}
+                          <div className="grid grid-col-1 gap-6">
+                            <div className="bg-white shadow-md p-8 mx-auto rounded-2xl">
+                              <div className="relative h-32 w-32">
+                                <Image
+                                  src={`/assets/partycup.webp`}
+                                  className="object-cover"
+                                  layout="fill"
+                                />
+                              </div>
+                              Party Cup
+                            </div>
+                            <div className="bg-white shadow-md p-8 mx-auto rounded-2xl">
+                              <div className="relative h-32 w-32">
+                                <Image
+                                  src={`/assets/can.webp`}
+                                  className="object-cover"
+                                  layout="fill"
+                                />
+                              </div>
+                              Aluminium Cans
+                            </div>
+                          </div>
                         </motion.div>
                       </motion.div>
                     )}

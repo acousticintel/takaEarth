@@ -17,3 +17,18 @@
   sm:align-middle sm:max-w-lg sm:w-full;
 }
 
+.event__modal{
+  @apply mb-6 text-emerald-900;
+}
+
+.event__modal h1{
+  @apply my-2 font-semibold text-lg text-center;
+}
+
+.event__modal p{
+  @apply text-gray-500 my-3 text-center;
+}
+
+.event__modal h2{
+  @apply font-light text-center;
+}

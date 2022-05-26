@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApp, getApps } from "firebase/app";
-import { getMessaging } from "firebase/messaging";
 import { getFirestore, enableIndexedDbPersistence } from "firebase/firestore";
 //import { getStorage } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -19,7 +18,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const db = getFirestore(app);
-const messaging = getMessaging(app);
 //const storage = getStorage(app);
 
 //enableIndexedDbPersistence(db).catch(function (err) {
@@ -36,6 +34,5 @@ const messaging = getMessaging(app);
 
 export {
   app,
-  db,
-  messaging, //storage
+  db, //storage
 };

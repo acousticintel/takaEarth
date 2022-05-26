@@ -87,7 +87,6 @@ export default function Profile() {
             </div>
           </div>
         </div>
-
         <ProdSelection />
         <motion.div className="buttons-sec" variants={riseVar}></motion.div>
         <motion.section variants={riseVar}>

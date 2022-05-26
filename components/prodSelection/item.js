@@ -6,7 +6,7 @@ import { prodPhotos } from "../../context/vars";
 
 export default function Item({prod}) {
   const router = useRouter();
-  const { onSetProd, onSetReqModal } = useData();
+  const { onSetProd } = useData();
 
   const handleClick = () => {
     onSetProd(prod);

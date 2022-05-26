@@ -14,9 +14,8 @@ import {
   query,
   serverTimestamp,
 } from "@firebase/firestore";
-import { getMessaging, onMessage } from "firebase/messaging";
 //custom
-import { firebaseCloudMessaging } from "../firebaseToken";
+import OneSignal from "react-onesignal";
 
 const dataContext = createContext();
 
@@ -38,6 +37,7 @@ function useProvideData() {
   const [recModal, setRecModal] = useState(false);
   const [qrModal, setQrModal] = useState(false);
   //product selected
+  const [event, setEvent] = useState(null);
   const [prod, setProd] = useState(null);
   const [side, setSide] = useState(false);
   const [orders, setOrders] = useState([]);
@@ -53,6 +53,7 @@ function useProvideData() {
   const onSetQrModal = (val) => setQrModal(val);
 
   const onSetProd = (val) => setProd(val);
+  const onSetEvent = (val) => setEvent(val);
 
   const onSetSide = (val) => setSide(val);
   const onSetUserPoints = (val) => setUserPoints(val);
@@ -70,41 +71,19 @@ function useProvideData() {
   };
 
   //Enable Push Notifications
-  useEffect(() => {
-    setToken();
-    async function setToken() {
-      try {
-        const token = await firebaseCloudMessaging.init();
-        if (token) {
-          //console.log(token);
-          getMessage();
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    function getMessage() {
-      const messaging = getMessaging();
-      onMessage(messaging, (payload) => {
-        const { title, body } = payload.notification;
-        console.log({ title, body });
-      });
-    }
-  });
-
-  async function displayNotification({ title, body }) {
-    if (Notification.permission === "granted") {
-      navigator.serviceWorker.getRegistration().then((reg) => {
-        var options = {
-          body,
-        };
-        reg.showNotification(title, options);
-      });
-    }
-  }
+  useEffect(async () => {
+    await OneSignal.init({
+      appId: "599b662d-529b-4843-a940-ba64c1e174c0",
+      notifyButton: {
+        enable: true,
+      },
+      allowLocalhostAsSecureOrigin: true,
+    });
+  }, []);
 
   //useEffect(() => { }, []);
   useEffect(() => {
+    SetPushExternalId();
     createUser();
     readPostsHistory();
     readOffersPromos();
@@ -120,6 +99,17 @@ function useProvideData() {
       );
       return onSnapshot(q, (snapshot) => {
         onSetPosts(snapshot.docs);
+      });
+    }
+  }
+
+  async function SetPushExternalId() {
+    if (session?.user) {
+      OneSignal.getExternalUserId().then(function (externalUserId) {
+        console.log("externalUserId: ", externalUserId);
+        if (!externalUserId) {
+          OneSignal.setExternalUserId(session.user.uid);
+        }
       });
     }
   }
@@ -266,7 +256,9 @@ function useProvideData() {
     side,
     onSetSide,
     prod,
+    event,
     onSetProd,
+    onSetEvent,
     redeem,
     onSetRedeem,
     selRequest,
